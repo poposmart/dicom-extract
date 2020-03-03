@@ -19,6 +19,13 @@
   </properties>
 
   <repositories>
+
+    <repository>
+      <id>pixelmed</id>
+      <name>pixelmed-lib</name>
+      <url>file:\\project.basedir}/src/main/resources/</url>
+    </repository>
+
     <repository>
       <id>www.dcm4che.org</id>
       <name>dcm4che Repository</name>
@@ -33,10 +40,13 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+
+
   </repositories>
 
   <dependencies>
-    <dependency>
+
+      <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
@@ -50,29 +60,21 @@
       <version>5.20.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
     <dependency>
-      <groupId>com.pixelmed</groupId>
-      <artifactId>pixelmed</artifactId>
-      <version>20150512</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/pixelmed.jar</systemPath>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>1.6.0</version>
     </dependency>
 
     <dependency>
     <groupId>com.pixelmed</groupId>
-    <artifactId>pixelmed_codec</artifactId>
+    <artifactId>pixelmed</artifactId>
     <version>20150512</version>
-    <scope>system</scope>
-    <systemPath>${project.basedir}/src/main/resources/pixelmed_codec.jar</systemPath>
+
   </dependency>
 
-    <dependency>
-      <groupId>com.pixelmed</groupId>
-      <artifactId>pixelmed_imageio</artifactId>
-      <version>20150512</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/pixelmed_imageio.jar</systemPath>
-    </dependency>
+
 
 
     <dependency>
@@ -125,6 +127,32 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <configuration>
+            <mainClass>dicom.App</mainClass>
+          </configuration>
+        </plugin>
+
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>dicom.App</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+
+
+
       </plugins>
     </pluginManagement>
   </build>
