@@ -18,7 +18,8 @@ Make sure that Maven is in your System Variables
 - Install plugin before resolving dependencies
 ```
 mvn org.apache.maven.plugins:maven-install-plugin:2.5.1:install-file \
--Dfile=lib/cloudfoundry-client-lib-shaded-1.0.3.jar 
+-Dfile=src/main/resources/pixelmed.jar
+
 ```
 
 - Configure the dependencies and build the package
