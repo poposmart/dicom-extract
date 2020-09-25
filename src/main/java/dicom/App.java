@@ -39,6 +39,11 @@ public class App {
   private AttributeList list;
   public static App app;
 
+  /**
+  * Method to extract the meta-data
+  *
+  * @return The extracted data as a 2D array.
+  */
   public String[][] meta(String filePath) {
     file = new File(filePath);
     try {
@@ -57,7 +62,11 @@ public class App {
     return strs;
   }
 
-
+  /**
+  * Method to sturucture the extracted the META-DATA
+  *
+  * @return A 2D array with structured content.
+  */
   private String[][] itStr() {
     strs = new String[list.size()][6];
     int i = 0;
