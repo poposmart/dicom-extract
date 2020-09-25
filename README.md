@@ -31,5 +31,5 @@ mvn install
 ```
 mvn exec:java
 ```
-This is popup an GUI application now go on and click browse to locate an .dcm file.
+This will popup an GUI application, now go on and click browse to locate an .dcm file.
 
